@@ -13,4 +13,13 @@
 - call(fn,...agrs): gọi hàm fn và truyền tham số args vào hàm đó.
 - all([...effects]): chạy tất cả effects cùng 1 lúc.
 - take(pattern) and fork(fn,...args): mô hình watcher...worker, đợi dispatch action pattern thì sẽ thực hiện 1 cái task nào đó.
-- debounce(ms, pattern, saga, ...args): 
+- debounce(ms, pattern, saga, ...args):
+
+====== Giải thích các effect =======
+Trong general function khi gọi trực tiếp API => yeild funtionCalAPI => trả ra 1 Promise() => rất khó test
+Để giải quyết vấn đề trên ta dùng hàm call => yeild call(funtionCalAPI, thamso) => trả về 1 JS object
+
+fork and spawn : Cả 2 đều là non-blocking call(tức sẽ không đợi và chạy qua dòng tiếp theo lun):
+
+- fork: có mối liên hệ với thằng ca(tức xảy ra lỗi sẽ báo lên tk cha và cancel các task fork khác)
+- spawn: không có mối liên hệ nào với tk cha cả
