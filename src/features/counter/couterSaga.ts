@@ -1,12 +1,16 @@
-import { PayloadAction } from "@reduxjs/toolkit";
-import { takeEvery } from "redux-saga/effects";
-import { increment } from "./counterSlice";
+import { PayloadAction } from '@reduxjs/toolkit';
+import { takeEvery } from 'redux-saga/effects';
+import { increment, incrementSaga } from './counterSlice';
 
-export function* log(action: PayloadAction){
-  console.log('Log', action);
+// export function* log(action: PayloadAction){
+//   console.log('Log', action);
+// }
+
+function* handleIncrementSaga(action: PayloadAction<number>) {
+  console.log('handleIncrementSaga');
 }
 
-export default function* counterSaga(){
-  console.log("counter-saga");
-  yield takeEvery(increment().type, log);
+export default function* counterSaga() {
+  console.log('counter-saga');
+  yield takeEvery(incrementSaga.toString(), handleIncrementSaga);
 }
