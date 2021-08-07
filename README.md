@@ -13,3 +13,4 @@
 - call(fn,...agrs): gọi hàm fn và truyền tham số args vào hàm đó.
 - all([...effects]): chạy tất cả effects cùng 1 lúc.
 - take(pattern) and fork(fn,...args): mô hình watcher...worker, đợi dispatch action pattern thì sẽ thực hiện 1 cái task nào đó.
+- debounce(ms, pattern, saga, ...args): 
