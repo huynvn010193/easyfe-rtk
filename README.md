@@ -23,3 +23,5 @@ fork and spawn : Cả 2 đều là non-blocking call(tức sẽ không đợi v�
 
 - fork: có mối liên hệ với thằng ca(tức xảy ra lỗi sẽ báo lên tk cha và cancel các task fork khác)
 - spawn: không có mối liên hệ nào với tk cha cả
+
+Viết code sao dễ test => sử dụng call -> trả về 1 object.
