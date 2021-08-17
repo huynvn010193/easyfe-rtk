@@ -25,3 +25,5 @@ fork and spawn : Cả 2 đều là non-blocking call(tức sẽ không đợi v�
 - spawn: không có mối liên hệ nào với tk cha cả
 
 Viết code sao dễ test => sử dụng call -> trả về 1 object.
+
+- Roter: -> react-router-dom + typescript: @types/react-router-dom.
