@@ -27,3 +27,9 @@ fork and spawn : Cả 2 đều là non-blocking call(tức sẽ không đợi v�
 Viết code sao dễ test => sử dụng call -> trả về 1 object.
 
 - Roter: -> react-router-dom + typescript: @types/react-router-dom.
+
+Cài đặt Material UI: yarn add @material-ui/core @material-ui/icons
+Add 2 link vào index.html in public folder:
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
