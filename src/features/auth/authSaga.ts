@@ -13,6 +13,7 @@ function* handleLogin(payload: LogginPayload) {
         name: 'Easy FE',
       })
     );
+    console.log('handleLogin');
     // redirect admin Page
     yield put(push('/admin'));
   } catch (error) {

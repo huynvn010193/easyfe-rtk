@@ -1,7 +1,8 @@
-import { Button, makeStyles, Paper, Typography } from '@material-ui/core';
+import { Button, CircularProgress, makeStyles, Paper, Typography } from '@material-ui/core';
+import { useAppSelector } from 'app/hooks';
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { authActions } from '../authSlice';
+import { authActions, selectIsLogging } from '../authSlice';
 
 export interface LoginPageProps {}
 
@@ -24,6 +25,9 @@ const useStyle = makeStyles((theme) => ({
 export default function LoginPage() {
   const classes = useStyle();
   const dispatch = useDispatch();
+  const isLogging = useAppSelector(selectIsLogging);
+
+  console.log('isLogging', isLogging);
 
   const handleLoginClick = () => {
     dispatch(
@@ -46,7 +50,7 @@ export default function LoginPage() {
           className={classes.btnLogin}
           onClick={handleLoginClick}
         >
-          Fake Login
+          {isLogging && <CircularProgress size={20} color='secondary' />} &nbsp; Fake Login
         </Button>
       </Paper>
     </div>
