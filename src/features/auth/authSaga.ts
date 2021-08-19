@@ -1,4 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+import { push } from 'connected-react-router';
 import { call, fork, take, delay, put } from 'redux-saga/effects';
 import { authActions, LogginPayload } from './authSlice';
 
@@ -12,6 +13,8 @@ function* handleLogin(payload: LogginPayload) {
         name: 'Easy FE',
       })
     );
+    // redirect admin Page
+    yield put(push('/admin'));
   } catch (error) {
     yield put(authActions.loginFailed(error.message));
   }
@@ -21,6 +24,7 @@ function* handleLogot() {
   yield delay(500); // call API
   localStorage.removeItem('access_token');
   // redirect to login page
+  yield put(push('/login'));
 }
 
 function* watchLoginFlow() {
