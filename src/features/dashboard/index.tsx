@@ -1,3 +1,4 @@
+import { Box, Grid } from '@material-ui/core';
 import { useAppSelector } from 'app/hooks';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -29,5 +30,11 @@ export default function Dashboard() {
   useEffect(() => {
     dispatch(dashboardAction.fetchData());
   }, [dispatch]);
-  return <div>Dashboard</div>;
+  return <Box>
+    {/* Statistic Section */}
+    <Grid container>
+      <Grid item xs={12} md={6} lg={4} xl={3}>
+      </Grid>
+    </Grid>
+  </Box>;
 }
