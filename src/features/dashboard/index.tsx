@@ -1,9 +1,11 @@
-import { Box, Grid, makeStyles, LinearProgress } from '@material-ui/core';
+import { Box, Grid, makeStyles, LinearProgress, Typography } from '@material-ui/core';
 import { ChatBubble, ChatRounded, PeopleAlt } from '@material-ui/icons';
 import { useAppSelector } from 'app/hooks';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import StatisticItem from './components/StatisticItem';
+import StudentRanking from './components/StudentRankingList';
+import Widget from './components/Widget';
 import {
   dashboardAction,
   selectDashboardLoading,
@@ -80,6 +82,20 @@ export default function Dashboard() {
           />
         </Grid>
       </Grid>
+      {/*All Student ranking*/}
+      <Box mt={4}>
+        <Typography variant='h4'>All Student</Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6} lg={3}>
+            <Widget title='Student with hightest mark'>
+              <StudentRanking />
+            </Widget>
+          </Grid>
+          <Grid item xs={12} md={6} lg={3}>
+            <Widget title='Student with lower mark'>Hightest</Widget>
+          </Grid>
+        </Grid>
+      </Box>
     </Box>
   );
 }
