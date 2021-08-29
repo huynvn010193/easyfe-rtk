@@ -55,6 +55,7 @@ function* fetchRankingByCityList() {
 
   const rankingByCityList: RankingByCity[] = responseList.map((x, idx) => ({
     cityId: cityList[idx].code,
+    cityName: cityList[idx].name,
     rankingList: x.data,
   }));
   // Update state

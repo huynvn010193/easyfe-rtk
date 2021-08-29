@@ -36,14 +36,6 @@ export default function Dashboard() {
   const rankingByCityList = useAppSelector(selectRankingByCityList);
   const classes = useStyles();
 
-  console.log({
-    loading,
-    statistics,
-    highestStudentList,
-    lowestStudentList,
-    rankingByCityList,
-  });
-
   useEffect(() => {
     dispatch(dashboardAction.fetchData());
   }, [dispatch]);
@@ -85,16 +77,32 @@ export default function Dashboard() {
       {/*All Student ranking*/}
       <Box mt={4}>
         <Typography variant='h4'>All Student</Typography>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6} lg={3}>
-            <Widget title='Student with hightest mark'>
-              <StudentRanking />
-            </Widget>
+        <Box mt={4}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6} lg={3}>
+              <Widget title='Student with hightest mark'>
+                <StudentRanking studentList={highestStudentList} />
+              </Widget>
+            </Grid>
+            <Grid item xs={12} md={6} lg={3}>
+              <Widget title='Student with lower mark'>
+                <StudentRanking studentList={lowestStudentList} />
+              </Widget>
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={6} lg={3}>
-            <Widget title='Student with lower mark'>Hightest</Widget>
+        </Box>
+        <Box mt={4}>
+          <Typography variant='h4'>Ranking by city</Typography>
+          <Grid container spacing={3}>
+            {rankingByCityList.map((ranking) => (
+              <Grid item xs={12} md={6} lg={3} key={ranking.cityId}>
+                <Widget title={ranking.cityName}>
+                  <StudentRanking studentList={ranking.rankingList} />
+                </Widget>
+              </Grid>
+            ))}
           </Grid>
-        </Grid>
+        </Box>
       </Box>
     </Box>
   );
