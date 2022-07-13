@@ -40,10 +40,10 @@ const authSlice = createSlice({
   },
 });
 
-// Actions
+// Actions -> khi muốn dùng thì authActions. -> ra các action có trong reducers
 export const authActions = authSlice.actions;
 
-// Selectors
+// Selectors -> tạm để any
 export const selectIsLoggedIn = (state: any) => state.auth.isLoggedIn;
 export const selectIsLogging = (state: any) => state.auth.logging;
 

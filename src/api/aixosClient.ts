@@ -8,6 +8,7 @@ const axiosClient = axios.create({
 });
 
 // Add a request interceptor
+// Làm một số việc gì đó trước khi gửi lên server
 axiosClient.interceptors.request.use(function (config: AxiosRequestConfig) {
   // Do something before request is sent
   return config;
@@ -17,9 +18,11 @@ axiosClient.interceptors.request.use(function (config: AxiosRequestConfig) {
 });
 
 // Add a response interceptor
+// Làm một số việc gì đó trước khi lấy về
 axiosClient.interceptors.response.use(function (response: AxiosResponse) {
   // Any status code that lie within the range of 2xx cause this function to trigger
   // Do something with response data
+  // chỉ lấy data thôi , ko quan tâm cái khác.
   return response.data;
 }, function (error) {
   // Any status codes that falls outside the range of 2xx cause this function to trigger

@@ -35,3 +35,16 @@ Add 2 link vào index.html in public folder:
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   
   test ubuntu
+
+- authSaga
+  if logged in, watch Logout
+  else watch LOGIN
+
+  - Login
+    = call login API to get token + user info
+    = set token to local storage
+    = redirect to admin page
+
+  - LOGOUT
+    = clear token from local storage
+    = redirect to login page.

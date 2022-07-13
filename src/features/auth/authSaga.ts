@@ -29,13 +29,18 @@ function* handleLogot() {
 }
 
 function* watchLoginFlow() {
+  // đễ vòng lặp đễ sau khi loggin -> lắng nghe logout -> bấm logout -> lắng nghe login
   while (true) {
+    // 
     const isLoggedIn = Boolean(localStorage.getItem('access_token'));
     if (!isLoggedIn) {
+      // user thực hiện dispatch action login
       const action: PayloadAction<LogginPayload> = yield take(authActions.login.type);
+      // khi user thực hiện action login thì fork vào hàm handle
       yield fork(handleLogin, action.payload);
     }
 
+    // khi user thực hiện logout
     yield take(authActions.logout.type);
     // fork: non-blocking: là ko đứng đợi -> chạy tiếp
     // -> nên chỗ này phải dùng call. -> blocking -> đứng đợi.

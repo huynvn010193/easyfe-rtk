@@ -30,6 +30,7 @@ export default function LoginPage() {
   console.log('isLogging', isLogging);
 
   const handleLoginClick = () => {
+    // TODO: get username + password from login from
     dispatch(
       authActions.login({
         username: '',
